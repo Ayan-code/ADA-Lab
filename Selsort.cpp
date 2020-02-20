@@ -6,16 +6,15 @@ using namespace std;
 
 int main()
 {
-   int *arr,n,i,j,small,temp;
-   clock_t time_req;
+   int *arr,n,i,j,small,temp,k;
    cout<<"Enter array element size:";
    cin>>n;
    arr=new int[n];
+   cout<<"enter array elements:";
    for(int i=0;i<n;i++)
    {
-      arr[i]=rand()/100000;
+      cin>>arr[i];
    }  
-   time_req=clock();
    for(i=0;i<n-1;i++)
    {
       int pos=i;
@@ -29,12 +28,17 @@ int main()
          }
       }
     }
-    cout<<"time taken:"<< (float)time_req/CLOCKS_PER_SEC<<" sec"<<endl;
     cout<<"Sorted Array:";
     for(int i=0;i<n;i++)
     {
         cout<<arr[i]<<" ";
-    }        
+    }  
+    cout<<"\nEnter the value of k:";
+    cin>>k;
+    for(int p=n-1;p>=n-k;p--)
+    {
+      cout<<arr[p]<<" ";
+    }       
     return 0;
 }    
 
