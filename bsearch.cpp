@@ -1,59 +1,79 @@
-#include<iostream>
-const int s=5;
-int main()
-{
-    int a[s],k,count=0;
-    int first,last;
-    int b[5];
-    std::cout<<"Enter the sorted array elements:";
-    for(int i=0;i<s;i++)
-    {
-        std::cin>>a[i];
-    }
-    std::cout<<"Enter the element to search:";
-    std::cin>>k;
-    int f=0;
-    int l=s;
-    for(int i=0;i<s;i++)
-    {
-      int m=(l+f)/2;
-      if(k>a[m])
-      {
-          f=m;
-      }
-      else if(k<a[m])
-      {
-          l=m;
-      }
-      else if(k==a[m])
-      {
-          if(k==a[m])
-          {
-              first=last=m;
-              count++;
-          }
-          for(int j=m-1;j>=0;j--)
-          {
-              if(k==a[j])
-              {    first=j;
-                    count++;
-              }
-          }
-          for(int j=m+1;j<s;j++)
-          {
-              if(k==a[j])
-                 { last=j;
-                    count++;
-                 }
-          }
-              std::cout<<"First occurance:"<<first+1<<"\n";
-              std::cout<<"Last occurance:"<<last+1<<"\n";
-              std::cout<<"total occurances:"<<count<<"\n";
-          break;
-      }
-      else
-          std::cout<<"Element not found";
-    }
 
-    return 0;
-}
+#include <iostream> 
+using namespace std; 
+
+
+int binarySearch(int arr[], int low, 
+				int high, int key) 
+{ 
+if (high < low) 
+	return -1; 
+	
+int mid = (low + high)/2;
+if (key == arr[mid]) 
+	return mid; 
+	
+if (key > arr[mid]) 
+	return binarySearch(arr, (mid + 1), high, key); 
+	
+// else 
+	return binarySearch(arr, low, (mid -1), key); 
+} 
+
+int findPivot(int arr[], int low, int high) 
+{ 
+
+if (high < low) return -1; 
+if (high == low) return low; 
+
+int mid = (low + high)/2; 
+if (mid < high && arr[mid] > arr[mid + 1]) 
+	return mid; 
+	
+if (mid > low && arr[mid] < arr[mid - 1]) 
+	return (mid-1); 
+	
+if (arr[low] >= arr[mid]) 
+	return findPivot(arr, low, mid-1); 
+	
+return findPivot(arr, mid + 1, high); 
+} 
+
+
+int pivotedBinarySearch(int arr[], int n, int key) 
+{ 
+int pivot = findPivot(arr, 0, n-1); 
+
+
+if (pivot == -1) 
+	return binarySearch(arr, 0, n-1, key); 
+
+if (arr[pivot] == key) 
+	return pivot; 
+	
+if (arr[0] <= key) 
+	return binarySearch(arr, 0, pivot-1, key); 
+	
+	return binarySearch(arr, pivot+1, n-1, key); 
+	
+} 
+
+
+int main() 
+{ 
+
+int arr1[5];
+cout<<"Enter the array:";
+for(int i=0;i<5;i++)
+    cin>>arr1[i];
+int n = sizeof(arr1)/sizeof(arr1[0]); 
+int key;
+cout<<"Enter the key:";
+cin>>key; 
+	 
+cout << "Index of the element is : " << 
+		pivotedBinarySearch(arr1, n, key); 
+			
+return 0; 
+} 
+
