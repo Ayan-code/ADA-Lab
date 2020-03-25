@@ -137,3 +137,7 @@ int main()
 } 
 
 
+Output:
+
+Enter 10 array elements:43 32 56 7 26 40 16 22 84 27
+After 3 way merge sort: 7 16 22 26 27 32 40 43 56 84
