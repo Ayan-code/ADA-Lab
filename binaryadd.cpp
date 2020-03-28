@@ -38,3 +38,12 @@ int main(){
     cout<<"\nSum of their digits is "<<sum<<endl;
     return 0;
 }
+
+Output:
+Enter the size of the array
+5
+Enter the elements
+2 7 4 3 5
+The numbers with even number of 1s in it's binary representation are:
+3 5
+Sum of their digits is 8
