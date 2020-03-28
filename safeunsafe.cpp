@@ -49,3 +49,13 @@ int main(){
     cout<<"Total number of jumps = "<<count;
     return 0;
 }
+
+Output:
+Enter the number of elements
+8
+Enter the elements
+0 1 0 0 0 1 1 0
+Jumped to position: 2
+Jumped to position: 7
+Final position not possible
+Total number of jumps = 2
