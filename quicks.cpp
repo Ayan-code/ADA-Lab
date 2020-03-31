@@ -63,3 +63,13 @@ int main()
 	cout<<"\nTime taken ="<<(float)t/CLOCKS_PER_SEC<<" sec"<<endl;   
 	return 0;	
 }
+
+/*
+Output:-
+Enter the number of elements
+6
+Enter the elements
+3 1 7 4 9 5
+Sorted Array:1 3 4 5 7 9
+Time taken =0 sec
+*/
