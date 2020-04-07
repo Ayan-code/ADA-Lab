@@ -33,4 +33,8 @@ int main()
 	return 0; 
 } 
 
-
+/*
+Output:
+Enter the sequence:BBABCBCAB
+The length of the subsequence is 7
+*/
