@@ -1,63 +1,48 @@
 #include <bits/stdc++.h> 
-using namespace std; 
+using namespace std;
 
-#define V 5 
- 
-int minKey(int key[], bool mstSet[]) 
-{  
-	int min = INT_MAX, min_index; 
-
-	for (int v = 0; v < V; v++) 
-		if (mstSet[v] == false && key[v] < min) 
-			min = key[v], min_index = v; 
-
-	return min_index; 
-} 
- 
-void printMST(int parent[], int graph[V][V]) 
-{ 
-	cout<<"Edge \tWeight\n"; 
-	for (int i = 1; i < V; i++) 
-		cout<<parent[i]<<" - "<<i<<" \t"<<graph[i][parent[i]]<<" \n"; 
-} 
- 
-void primMST(int graph[V][V]) 
-{ 
-	int parent[V];  
-	int key[V]; 
-	bool mstSet[V];  
-	for (int i = 0; i < V; i++) 
-		key[i] = INT_MAX, mstSet[i] = false; 
-
-	key[0] = 0; 
-	parent[0] = -1;
-
-	for (int count = 0; count < V - 1; count++) 
-	{ 
-		int u = minKey(key, mstSet);  
-		mstSet[u] = true; 
-
-		for (int v = 0; v < V; v++)  
-			if (graph[u][v] && mstSet[v] == false && graph[u][v] < key[v]) 
-				parent[v] = u, key[v] = graph[u][v]; 
-	} 
-	printMST(parent, graph); 
-} 
-
-int main() 
-{ 
-	int graph[V][V];
-	int i,j;
-	cout<<"Enter the matrix:";
-	for(i=0;i<V;i++){
-	    for(j=0;j<V;j++){
-	        cin>>graph[i][j];
-	    }
+int g[10][10], visited[10], n, sum = 0, c = 0;
+void prims(int v){
+    int i, j, indexi = 0, indexj = 0;
+    visited[v] = 1;
+    int min = 999999;
+    
+    for(i = 1; i <= n; i++){
+        for(j = 1; j<=n; j++){
+            if((visited[i] == 1) && (visited[j] == 0)){
+                if(g[i][j] < min){
+                    min = g[i][j];
+                    indexi = i;
+                    indexj = j;
+                }
+            }
+        }
     }
+    sum+= g[indexi][indexj];
+    cout<<indexi <<" to "<<indexj<<", weight: "<<g[indexi][indexj]<<endl;
+    c++;
+    visited[indexj] = 1;
+    if (c == n - 1){
+        return;
+    }
+    prims(indexj);
+}
 
-	primMST(graph); 
-
-	return 0; 
-} 
-
-
+int main(){
+    int i, j, ele;
+    cout<<"Enter the number of vertices"<<endl;
+    cin>>n;
+    cout<<"Enter the weighted matrix(Enter -1 if edge does not exist)"<<endl;
+    for(i=1; i<=n; i++){
+        for(j=1; j<=n; j++){
+            cin>>ele;
+            if(ele == -1){
+                g[i][j] = 10000;
+            }
+            else g[i][j] = ele;
+        }
+        visited[i] = 0;
+    }
+    prims(1);
+    cout<<"Minimum value = "<<sum<<endl;
+}
