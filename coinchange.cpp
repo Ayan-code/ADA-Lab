@@ -40,4 +40,8 @@ int main()
 	return 0;
 }
 
-
+/* OUTPUT
+Enter the value:67
+Total coins needed:4
+Coins are:50 10 5 2
+*/
