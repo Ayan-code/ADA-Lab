@@ -63,3 +63,22 @@ int main()
 	return 0;
     
 }
+
+/* OUTPUT:
+Enter total vertices:6
+Enter the cost adacency matrix:
+0 3 1 6 0 0
+3 0 5 0 3 0
+1 5 0 5 6 4
+6 0 5 0 0 2
+0 3 6 0 0 6
+0 0 4 2 6 0
+Edges of MST:
+1 edge (1,3) = 1
+2 edge (4,6) = 1
+3 edge (1,2) = 1
+4 edge (2,5) = 1
+5 edge (3,6) = 1
+
+Minimum Cost:5
+*/
