@@ -75,10 +75,10 @@ Enter the cost adacency matrix:
 0 0 4 2 6 0
 Edges of MST:
 1 edge (1,3) = 1
-2 edge (4,6) = 1
-3 edge (1,2) = 1
-4 edge (2,5) = 1
-5 edge (3,6) = 1
+2 edge (4,6) = 2
+3 edge (1,2) = 3
+4 edge (2,5) = 3
+5 edge (3,6) = 4
 
-Minimum Cost:5
+Minimum Cost:13
 */
