@@ -33,3 +33,11 @@ int main()
     cout<<"Maximum Obtainable Value is: "<<cutRod(arr,size);
     return 0;
 }
+
+/* 
+OUTPUT:
+Enter the size:8
+
+Enter the array:1 5 8 9 10 17 17 20
+Maximum Obtainable Value is: 22
+*/
