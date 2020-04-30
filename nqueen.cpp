@@ -74,3 +74,14 @@ int main()
     }
     return 0;
 }
+
+/*
+OUTPUT:
+Enter the value of N for NxN chessboard
+5
+10000
+00100
+00001
+01000
+00010
+*/
