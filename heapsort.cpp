@@ -4,7 +4,7 @@
   
 using namespace std; 
  
-void heapify(int arr[], int n, int i) 
+void heap(int arr[], int n, int i) 
 { 
     int largest = i;
     int l = 2*i + 1;
@@ -17,7 +17,7 @@ void heapify(int arr[], int n, int i)
     if (largest != i) 
     { 
         swap(arr[i], arr[largest]);  
-        heapify(arr, n, largest); 
+        heap(arr, n, largest); 
     } 
 }  
 void heapSort(int arr[], int n) 
@@ -28,7 +28,7 @@ void heapSort(int arr[], int n)
     { 
         swap(arr[0], arr[i]); 
   
-        heapify(arr, i, 0); 
+        heap(arr, i, 0); 
     } 
 } 
 
@@ -57,3 +57,20 @@ int main()
     printArray(arr, n);
 	return 0; 
 } 
+
+/*
+OUTPUT:
+
+Enter the size:10
+time taken:2.549 sec
+Sorted array is
+1 63 114 157 184 191 244 265 269 293
+
+Enter the size:100
+time taken:2.773 sec
+Sorted array is
+0 1 2 2 4 7 18 18 20 29 30 35 39 46 48 49 54 54 55 57 63 67 68 73 77 87 89 90 97 98 99 113 114
+115 118 119 123 123 126 128 139 146 147 150 151 153 157 158 161 165 168 169 170 174 176 184 187 
+187 191 192 196 197 198 199 199 200 215 217 221 226 229 232 238 238 240 243 243 244 246 255 256
+262 263 265 269 274 275 276 281 282 287 293 301 303 311 313 323 324 326 327
+*/
